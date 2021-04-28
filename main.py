@@ -24,9 +24,8 @@ MIN_SNAPSHOT_TIME_LENGTH_TASK_3 = 60
 MIN_OPLOG_BYTES_PER_SECOND = 277777 # When converted into Oplog GB / hours, this 277777 is exact 1gb/hr 
 MIN_SNAPSHOT_DURATION_FOR_TASK_4 = 15 
 
+# Populate jobId to Atlas/CM cache
 backupJobIdToEnv = {}
-
-
 def populateBackupJobIdToEnvCache():
   for file in os.listdir("./allStats"):
     if (file.startswith("task5") or file.startswith("task6")):
@@ -43,9 +42,7 @@ def populateBackupJobIdToEnvCache():
             backupJobIdToEnv[jobId] = row[3]
 
           print("Finished Processing file: ", "./allStats/" + file)
-# Populate jobId to Atlas/CM cache
 populateBackupJobIdToEnvCache()
-
 
 ## Helpers
 
@@ -819,6 +816,4 @@ def computeStandardDeviationTask6(numDirtyBlocks, snapshotTimes):
 # analysisForTask4_OplogSize(None)
 # analysisForTask4_memory(None)
 # analysisForTask5()
-analysisForTask6()
-
-
+# analysisForTask6()

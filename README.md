@@ -1,1 +1,1 @@
-python3 
+Script to visualize csv files containing stats.
